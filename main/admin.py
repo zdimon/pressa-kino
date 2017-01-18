@@ -15,9 +15,15 @@ class PageAdmin(admin.ModelAdmin):
 
 admin.site.register(Page, PageAdmin)
 
+class VideoInline(admin.TabularInline):
+    list_display = ("code","video" )
+    model = Videos
+
+
 
 class FilmAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display = ("thumb","name","festival" )
+    inlines = [ VideoInline, ]
 
 admin.site.register(Film, FilmAdmin)
 
