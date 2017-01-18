@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container">
+
+        <h1>{{ festival.title }}</h1>
+
+
+
+                  <div class="row">
+                    {% for f in festival.film_set.all %}
+                        <div class="col-sm-6">
+                            <div class="well well-sm">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img class="img-rounded" src="{{ f.thumb_url }}" />
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <strong> {{ f.name }} </strong>
+                                        <p> {{ f.shorttext }} </p>
+                                        <strong> {{ f.release_date }} </strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+    </div>
+
+{% endblock %}

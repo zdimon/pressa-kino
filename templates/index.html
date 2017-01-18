@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+
+       <div class="container">
+       
+              {% if page_one.video.url %}  
+              
+                <video class="img-responsive" autoplay loop controls tabindex="0" src="{{ page_one.video.url }}"></video>
+              {% endif %}
+
+              
+                <p style="text-align: center;">{{ page_one.code|safe}}</p>
+            
+           
+
+
+       </div>
+
+
+        <!-- кинофестиваль -->
+
+        <div class="container">
+                <h2 class="festival_title">{{ fo.title }}</h2>
+            <div class="festival_line">
+
+
+
+                    <div id="festival" class="owl-carousel">
+                      {% for f in festival_one %}
+                      <div class="item photoplot">
+                            <a href="{{ fo.get_absolute_url }}"><img class="img-responsive" src='{{ f.thumb_url }}' /></a>
+
+                            <p class="festival_subtitle"> {{ f.name }}</p>
+                            <p>{{ f.shorttext }} </p>
+                        </div>
+                      {% endfor %}
+
+
+                    </div>
+
+
+             </div>
+
+        </div>
+
+        <!---------------------------->
+
+
+
+
+
+        <!-- кинофестиваль -->
+
+        <div class="container">
+                <h2 class="festival_title_kino">{{ ft.title }}</h2>
+            <div class="festival_line_kino">
+
+                    <div id="festival_kino" class="owl-carousel">
+                        {% for f in festival_two %}
+                        <div class="item photoplot">
+                              <a href="{{ ft.get_absolute_url }}"><img class="img-responsive" src='{{ f.thumb_url }}' /></a>
+
+                              <p class="festival_subtitle"> {{ f.name }}</p>
+                              <p>{{ f.shorttext }} </p>
+                          </div>
+                        {% endfor %}
+                    </div>
+
+
+             </div>
+
+        </div>
+
+        <!---------------------------->
+
+
+        <div class="container">
+
+            <a href="/page/{{page_two.alias}}.html">
+                <img class="img-responsive" src="{{ page_two.image.url }}" />
+                <p class="priz">{{ page_two.title }}</p>
+            </a>
+
+        </div>
+
+
+
+
+
+
+        <!-- БЛОГ ФЕСТИВАЛЯ -->
+
+        <div class="container">
+                <h2 class="festival_title_kino">БЛОГ ФЕСТИВАЛЯ</h2>
+            <div class="festival_line_blog">
+
+                    <div id="festival_blog" class="owl-carousel">
+                        {% for f in blog %}
+                            <div class="item photoplot">
+                                <img class="img-responsive img-circle" src='{{ f.thumb_url }}' />
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+
+             </div>
+
+        </div>
+
+        <!---------------------------->
+
+
+{% endblock %}
