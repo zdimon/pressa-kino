@@ -99,3 +99,4 @@ from local import *
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
+ 
