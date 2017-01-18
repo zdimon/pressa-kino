@@ -69,6 +69,11 @@ class Film(models.Model):
         verbose_name = _(u'фильм')
         verbose_name_plural = _(u'фильмы')
 
+class Videos(models.Model):
+    film = models.ForeignKey(Film, on_delete=models.CASCADE)
+    code = models.TextField(verbose_name=_(u'код для вставки'), blank=True, null=True)
+    video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)     
+
 
 
 class Blog(models.Model):

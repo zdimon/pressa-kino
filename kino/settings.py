@@ -41,7 +41,6 @@ INSTALLED_APPS = (
     'image_cropping',
     'sorl.thumbnail',
     'ckeditor',
-    'south',
     'easy_thumbnails',
 )
 
