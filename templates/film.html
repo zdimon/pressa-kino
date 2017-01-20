@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container">
+
+        <h3><a href="{{ film.festival.get_absolute_url }}"> {{ film.festival }} </a> / {{ film.name }}</h3>
+
+
+
+                  <div class="row">
+                    {% for v in film.videos_set.all %}
+                        <div class="col-sm-12" style="text-align: center  ">
+                             {{ v.code|safe }}
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+    </div>
+
+{% endblock %}

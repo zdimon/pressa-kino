@@ -30,7 +30,7 @@ class Festival(models.Model):
     image  = models.ImageField(upload_to='festivals', verbose_name=u'Изображение', blank=True, null=True)
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
     alias = models.CharField(max_length=50,verbose_name=_(u'псевдоним'), db_index=True)
-    
+
     def get_absolute_url(self):
         return reverse('festival_detail', args=[self.alias])
     def __unicode__(self):
@@ -48,6 +48,8 @@ class Film(models.Model):
     release_date = models.DateField(blank=True, null=True)
     image  = models.ImageField(upload_to='film', verbose_name=u'Изображение', blank=True, null=True)
     cropping = ImageRatioField('image', '255x145')
+    def get_absolute_url(self):
+        return reverse('film_detail', args=[self.id])    
     def __unicode__(self):
         return self.name
 
@@ -72,7 +74,7 @@ class Film(models.Model):
 class Videos(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
     code = models.TextField(verbose_name=_(u'код для вставки'), blank=True, null=True)
-    video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)     
+    video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)
 
 
 

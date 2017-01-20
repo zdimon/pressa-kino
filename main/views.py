@@ -31,3 +31,9 @@ def festival(request,id):
     festival = get_object_or_404(Festival, alias=id)
     context = {'festival': festival }
     return render_to_response('festival.html', context)
+
+
+def film(request,id):
+    film = get_object_or_404(Film, id=id)
+    context = {'film': film }
+    return render_to_response('film.html', context)
