@@ -10,7 +10,16 @@
 
                   <div class="row">
                     {% for v in film.videos_set.all %}
-                        <div class="col-sm-12" style="text-align: center  ">
+
+
+                        <div class="col-sm-12" style="text-align: center">
+
+                            {% if v.video %}
+                                <p>
+                                    <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="{{ v.video.url }}"></video>
+                                </p>
+                            {% endif %}
+
                              {{ v.code|safe }}
                         </div>
                     {% endfor %}

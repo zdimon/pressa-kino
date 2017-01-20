@@ -49,7 +49,7 @@ class Film(models.Model):
     image  = models.ImageField(upload_to='film', verbose_name=u'Изображение', blank=True, null=True)
     cropping = ImageRatioField('image', '255x145')
     def get_absolute_url(self):
-        return reverse('film_detail', args=[self.id])    
+        return reverse('film_detail', args=[self.id])
     def __unicode__(self):
         return self.name
 
@@ -73,6 +73,7 @@ class Film(models.Model):
 
 class Videos(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
+    image  = models.ImageField(upload_to='video', verbose_name=u'Изображение', blank=True, null=True)
     code = models.TextField(verbose_name=_(u'код для вставки'), blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)
 
