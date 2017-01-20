@@ -26,7 +26,7 @@ def deploy():
         run('git pull') # Пуляемся из репозитория
         run('pip install -r requirements.txt') # ставим пакеты
         run('pwd')
-        run('./manage.py collectstatic --noinput') # Собираем статику
+        #run('./manage.py collectstatic --noinput') # Собираем статику
         #run('./manage.py sync_translation_fields --noinput') # Собираем статику
         run('./manage.py migrate')
         #run('./manage.py makemessages -l ru')
