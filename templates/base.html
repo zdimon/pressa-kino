@@ -28,48 +28,64 @@
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
+   <div class="container">
+       <div class="col-md-3">
+           <img src="/static/logo.jpg">
+           <p class="ls" id="pressa_logo" style="display: inline-block"><a href="/" style="color: #636363"> <img src="/static/img/pressa_logo_footer.png" /> PRESSA.RU </a> </p>
+       </div>
+       <div class="col-md-9">
+           <nav class="navbar">
+               <div class="container-fluid">
+
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                              <span class="sr-only">Toggle navigation</span>
+                              <span class="icon-bar" style="background-color: #E21515"></span>
+                              <span class="icon-bar" style="background-color: #E21515"></span>
+                              <span class="icon-bar" style="background-color: #E21515"></span>
+                            </button>
 
 
-    <div class="navbar navbar navbar-static-top" id="first_navigator">
-        <div class="container">
 
 
 
-            <div class="row padding-top nowrap">
-                <div class="col-md-4 logo">
-                    <a href="/"><p class="tl">ТЕЛЕК</p> <p class="kn">КИНОЗАЛ</p></a>
-                    <p class="ls" id="pressa_logo"><a href="/" style="color: #636363"> <img src="/static/img/pressa_logo_footer.png" /> PRESSA.RU </a> </p>
-                </div>
-                <div class="col-md-8">
-                    <div class="text-right">
-                        <a href="/main.html" type="button" class="btn btn-default">Главное</a>&nbsp;
-                        <a href="/projects.html" type="button" class="btn btn-default">Проекты</a>&nbsp;
-                        <a href="/konkurs.html" type="button" class="btn btn-default">Текущий конкурс</a>&nbsp;
-                        <a href="/news/list" type="button" class="btn btn-default">Новости</a>&nbsp;
-                        <a href="/smi.html" type="button" class="btn btn-default">СМИ о нас</a>&nbsp;
-                        <a href="/contacts.html" type="button" class="btn btn-default">Контакты</a>&nbsp;
 
-                        <div class="text-right padding-top nowrap">
-                            <a href="https://www.ok.ru/kinopritchi" id="s_ok"></a>
-                            <a href="https://vk.com/pritchi_online" id="s_vk"></a>
-                            <!--
-                            <a id="s_yt"></a>
-                            <a id="s_tw"></a>
-                            <a id="s_in"></a>
-                            <a id="s_go"></a>
-                            -->
-                            <a href="https://www.facebook.com/kinopritchi/" id="s_fc"></a>
-                        </div>
 
+
+
+                                  <div class="collapse navbar-collapse" id="navbar">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li><a  href="/main.html" >Главное</a></li>
+                                            <li class="dropdown">
+                                                <a href="/projects.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Проекты <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                                 <li><a href="#">Лучшая рождественская десятка</a></li>
+                                                                 <li><a href="#">Все фильмы рождественского фестиваля</a></li>
+                                                                 <li><a href="#">Лучшие фильмы 2016 года</a></li>
+                                                                 <li role="separator" class="divider"></li>
+                                                                 <li> <a href="#">Архив фильмов</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <a href="/konkurs.html" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Текущий конкурс<span class="caret"></span></a>
+                                                <ul class="dropdown-menu">
+                                                                 <li><a href="#">о фестивале</a></li>
+                                                                 <li><a href="#">Организаторы</a></li>
+                                                                 <li><a href="#">Гимн</a></li>
+                                                                 <li> <a href="#">Положение фестиваля</a></li>
+                                                                 <li> <a href="#">Заявка</a></li>
+                                                                 <li> <a href="#">Партнеры</a></li>
+                                                                 <li> <a href="#">Релиз фестиваля</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="/news/list" >Новости</a></li>
+                                            <li><a href="/smi.html" >СМИ о нас</a></li>
+                                            <li><a href="/contacts.html" >Контакты</a></li>
+                                        </ul>
+
+                                    </div>
                     </div>
-                </div>
+                </nav>
             </div>
-
-
-
-
-            </div>
-
         </div>
 
        {% block main %}{% endblock %}
@@ -84,7 +100,19 @@
                     <li><a href="http://xn----7sbadopoap4a1bx6d4c8b.xn--p1ai/"><img src="/static/img/logo2.png" /></a></li>
                     <li><a href="http://pressa.ru"><img src="/static/img/logo3.png" /></a></li>
                 </ul>
+                <a href="https://www.ok.ru/kinopritchi" id="s_ok"></a>
+                <a href="https://vk.com/pritchi_online" id="s_vk"></a>
+                <!--
+                <a id="s_yt"></a>
+                <a id="s_tw"></a>
+                <a id="s_in"></a>
+                <a id="s_go"></a>
+                -->
+                <a href="https://www.facebook.com/kinopritchi/" id="s_fc"></a>
             </div>
+
+
+
         </div>
 
 
