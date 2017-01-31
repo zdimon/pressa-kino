@@ -1,6 +1,16 @@
 from django.shortcuts import render
 from django.shortcuts import render_to_response, get_object_or_404
 from main.models import *
+from django.views.generic import ListView, DetailView
+
+
+class NewsListView(ListView):
+    model = News
+
+class NewsDetailView(DetailView):
+    model = News
+
+
 # Create your views here.
 def index(request):
     page_one = get_object_or_404(Page, alias='first')

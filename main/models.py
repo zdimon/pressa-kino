@@ -6,7 +6,7 @@ from sorl.thumbnail import get_thumbnail
 from django.utils.safestring import mark_safe
 from image_cropping import ImageRatioField
 from django.core.urlresolvers import reverse
-
+import pytils
 
 # Create your models here.
 
@@ -15,7 +15,7 @@ class Page(models.Model):
     image  = models.ImageField(upload_to='page', verbose_name=u'Изображение', blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
-    alias = models.CharField(max_length=50,verbose_name=_(u'псевдоним'),help_text="не менять!", db_index=True)
+    alias = models.CharField(max_length=50,verbose_name=_(u'псевдоним'),help_text="не менять!", db_index=True, blank=True, null=True)
     in_menu = models.BooleanField(verbose_name=_(u'в верхнем меню?'),default=False)
     code = models.TextField(verbose_name=_(u'код для всавки'), blank=True, null=True)
     def __unicode__(self):
@@ -23,6 +23,26 @@ class Page(models.Model):
     class Meta:
         verbose_name = _(u'страница')
         verbose_name_plural = _(u'страницы')
+
+
+
+class News(models.Model):
+    title = models.CharField(max_length=250,verbose_name=_(u'заголовок'))
+    image  = models.ImageField(upload_to='news', verbose_name=u'Изображение', blank=True, null=True)
+    short_text = models.TextField(verbose_name=_(u'короткое описание'), blank=True, null=True)
+    text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
+    slug = models.CharField(max_length=50,verbose_name=_(u'URL'),help_text="генерируется автоматически!", db_index=True, blank=True, null=True)
+    def __unicode__(self):
+        return self.title
+    def get_absolute_url(self):
+       return reverse("news", kwargs={"slug": self.slug})
+    def save(self, **kwargs):
+        if not self.id:
+            self.slug = pytils.translit.slugify(self.title)
+        return super(News, self).save(**kwargs)
+    class Meta:
+        verbose_name = _(u'новость')
+        verbose_name_plural = _(u'новости')
 
 
 class Festival(models.Model):

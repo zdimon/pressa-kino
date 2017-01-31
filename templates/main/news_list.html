@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container">
+            <h2> Новости </h2>
+
+            {% for n in object_list %}
+
+                <div class="well">
+
+
+                    <div class="col-md-3">
+                        <a href="{{ n.get_absolute_url }}"> <img width="200" src="{{ n.image.url }}" /></a>
+                    </div>
+
+                    <div class="col-md-9">
+                        <a href="{{ n.get_absolute_url }}"> <h3> {{n.title}} </h3> </a>
+                        {{ n.short_text|safe }}
+                    </div>
+
+                    <div style="clear: both"> </div>
+
+                </div>
+
+            {% endfor %}
+    </div>
+
+{% endblock %}

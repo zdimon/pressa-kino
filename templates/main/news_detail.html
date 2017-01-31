@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container">
+            <h2> {{ object.title }} </h2>
+
+            <img class="img-responsive" src="{{object.image.url}}" />
+
+            <div class="col-md-12">
+
+                {{ object.text|safe }}
+
+            </div>
+
+    </div>
+
+{% endblock %}

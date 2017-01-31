@@ -4,6 +4,12 @@ from image_cropping import ImageCroppingMixin
 
 
 # Register your models here.
+
+class NewsAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(News, NewsAdmin)
+
 class FestivalAdmin(admin.ModelAdmin):
     pass
 
