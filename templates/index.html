@@ -4,10 +4,16 @@
 
 
        <div class="container" style="text-align: center; padding-top: 50px" autoplay="autoplay">
-              
-              <video style="width: 800px; height: 450px; " src="static/movie.webm" type='video/webm; codecs="vp8, vorbis"'>
-                     
+       
+       
+       <div class="container">
+              <video id="video" width="800" height="450" onclick="play();">
+                  <source src="static/movie.webm" type="video/webm" />
               </video>
+              <div class="overlay">
+                  <p>Фестиваль доброго кино</p>
+              </div>
+          </div>
        
        
        

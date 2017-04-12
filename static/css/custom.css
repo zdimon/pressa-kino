@@ -304,3 +304,18 @@
     display: inline-block !important; 
 } 
 
+
+
+.container { position:relative; }
+.container video {
+    position:relative;
+    z-index:0;
+}
+.overlay {
+    position:absolute;
+    top:20px;
+    left:250px;
+    z-index:1;
+    color: #fff;
+    font-size: 18px;
+}
