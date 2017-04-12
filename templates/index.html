@@ -3,19 +3,15 @@
 {% block main %}
 
 
-       <div class="container" style="text-align: center;">
+       <div class="container" style="text-align: center; padding-top: 50px" autoplay="autoplay">
+              
+              <video style="width: 800px; height: 450px; " src="static/movie.webm" type='video/webm; codecs="vp8, vorbis"'>
+                     
+              </video>
        
-              {% if page_one.video %}  
-              
-                <video class="img-responsive" autoplay loop controls tabindex="0" src="{{ page_one.video.url }}"></video>
-              {% endif %}
-
-              
-                <p style="text-align: center;">{{ page_one.code|safe}}</p>
+       
+       
             
-           
-                <p style="text-align: center;">{{ page_one.text|safe}}</p>
-
        </div>
 
       
