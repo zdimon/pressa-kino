@@ -1,5 +1,6 @@
 ul {
     padding: 0;
+    margin: 0;
 }
 
 #wg_content {
@@ -22,7 +23,7 @@ ul.wg_calendar li{
     text-align: center;
     line-height: 50px;
     vertical-align: bottom;
-    
+    cursor: pointer;
 }
 
 
@@ -67,9 +68,7 @@ ul.wg_calendar li.active {
 }    
 
 #wg_content .content .item .text{
-
     margin-left: 160px;
-
 }
 
 

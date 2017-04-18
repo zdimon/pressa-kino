@@ -195,5 +195,40 @@
          }  
 
   
+- remove active class from the content block;
+
+
+
+    $('#wg_content .item').removeClass('active');
+
+  
+- defining propriate content block;
+- we need to map the numbers with the item block;
+  
+  
+   <div class="content">
+    <div class="item active" id="item-1">  
+  
+  
+- create a function for the content activation   
+
+      activate_tab = function(){
+        var indx =  $('#wg_content li.active').index();
+        $('#item-'+indx).addClass('active');
+        
+      }
+      
+- invoke this function
+
+
+        if(nxt.hasClass('number')){
+            ....
+            activate_tab();
+        }  
+                       
+  
+- make pointer
+
+      
      
      
