@@ -1,0 +1,92 @@
+ul {
+    padding: 0;
+}
+
+#wg_content {
+    
+    border: 1px solid pink;
+    padding: 5px;
+    width: 374px;
+}
+
+ul.wg_calendar li{
+    
+    display: inline-block;
+    list-style: none;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    background: silver;
+    text-align: center;
+    line-height: 50px;
+    vertical-align: bottom;
+    
+}
+
+
+ul.wg_calendar li.arrow_forward {
+    
+    background: url('/images/sprite.png') no-repeat 0 0;
+    background-position: 0px -431px
+}
+
+ul.wg_calendar li.arrow_backward {
+    
+    background: url('/images/sprite.png') no-repeat 0 0;
+    background-position: 0px -379px
+}
+
+ul.wg_calendar li.active {
+    background: pink;
+.wg_content .content .item{
+    
+    display: none;
+    
+}}
+
+
+#wg_content .content .item{
+    
+    display: none;
+    
+}
+
+#wg_content .content .active{
+    
+    display: block;
+    
+}
+
+#wg_content .content .item .image{
+ 
+ width: 150px;
+ float: left;
+    
+}    
+
+#wg_content .content .item .text{
+
+    margin-left: 160px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
