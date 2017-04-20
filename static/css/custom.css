@@ -313,9 +313,45 @@
 }
 .overlay {
     position:absolute;
-    top:20px;
-    left:250px;
+    top:375px;
+    left:600px;
     z-index:1;
-    color: #fff;
+    color: red;
     font-size: 18px;
 }
+
+@media (min-width: 1200px) {
+    .container{
+        max-width: 900px;
+    }
+}
+
+
+#wrapper {width: 900px;} 
+#wrapper .container {max-width: 100%; display: block;}
+
+.logobg {
+  
+  background: url('/static/img/logon.png') no-repeat;
+  height: 300px;
+}
+
+ul.top_menu li {
+  
+  background: #203646;
+  padding: 2px;
+  color: white;
+  height: 55px;
+}
+
+ul.top_menu li a{
+  
+  color: white;
+  font-weight: bold;
+  
+}
+
+ul.top_menu li a:hover{
+  color: red; 
+}
+
