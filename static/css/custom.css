@@ -355,3 +355,10 @@ ul.top_menu li a:hover{
   color: red; 
 }
 
+ul.top_menu li.open a{
+  color: red; 
+}
+
+.dropdown-menu {
+  background: #203646;
+}

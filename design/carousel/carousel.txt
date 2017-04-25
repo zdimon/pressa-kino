@@ -1,0 +1,95 @@
+##Carousel
+
+###Basic template
+
+      <h1>Carousel</h1>
+
+      <div class="cl_wrapper">
+        <div class="cl_arrow_left"></div>
+        <div class="cl_content">
+          <div class="cl_item">
+            
+            <div class="cl_item_image">
+              <img src="images/1.jpg" />
+            </div>
+            <div class="cl_item_text">
+              <p class="cl_title"> <a href="#">Поездка к матери</a></p>
+              <p>Немногословная семейная драма
+                с тремя героями на фоне потрясающих пейзажей Прованса
+              </p>
+            </div>
+          </div>
+          
+          <div class="cl_item">
+            <div class="cl_item_image">
+              <img src="images/2.jpg" />
+            </div>
+            <div class="cl_item_text">
+              <p class="cl_title"> <a href="#">Поездка к матери</a></p>
+              <p>Немногословная семейная драма
+                с тремя героями на фоне потрясающих пейзажей Прованса
+              </p>
+            </div>
+          </div>          
+          
+          <div class="cl_item">
+            <div class="cl_item_image">
+              <img src="images/3.jpg" />
+            </div>
+            <div class="cl_item_text">
+              <p class="cl_title"> <a href="#">Поездка к матери</a></p>
+              <p>Немногословная семейная драма
+                с тремя героями на фоне потрясающих пейзажей Прованса
+              </p>
+            </div>
+          </div>
+          
+          <div class="cl_item">
+            <div class="cl_item_image">
+              <img src="images/4.jpg" />
+            </div>
+            <div class="cl_item_text">
+              <p class="cl_title"> <a href="#">Поездка к матери</a></p>
+              <p>Немногословная семейная драма
+                с тремя героями на фоне потрясающих пейзажей Прованса
+              </p>
+            </div>
+          </div>          
+
+        </div>
+        <div class="cl_arrow_right"></div>
+      </div>
+      
+###Styling
+
+
+    .cl_wrapper {
+         
+         border: 1px solid pink;
+         margin: 5px;
+         overflow: hidden;
+         white-space: nowrap;
+         width: 400px;
+         
+     } 
+     
+     .cl_content .cl_item {
+         display: inline-block;
+         width: 400px;
+         
+     } 
+     
+     
+     .cl_item .cl_item_image {
+         width: 150px;
+         float: left;
+     }
+     
+    .cl_item .cl_item_text {
+         padding-left: 160px;
+         width: 210px;
+         white-space: normal;
+     }
+ 
+       
+      
