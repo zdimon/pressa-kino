@@ -6,28 +6,45 @@
 
         <h1>{{ festival.title }}</h1>
 
+  
+          <div id="wg_content"> 
 
-
-                  <div class="row">
-                    {% for f in festival.film_set.all %}
-                        <div class="col-sm-6">
-                            <div class="well well-sm">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <a href="{{ f.get_absolute_url }}"><img class="img-rounded" src="{{ f.thumb_url }}" /></a>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <strong> {{ f.name }} </strong>
-                                        <p> {{ f.shorttext }} </p>
-                                        <strong> {{ f.release_date }} </strong>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+           <ul class="wg_calendar">
+            <li class="arrow arrow_backward"></li>
+               {% for i in dtl %}
+                <li class="number {{ i.is_active }}" data-id="{{ i.date.day }}">
+                     
+                    {{ i.weekday }} <br />
+                    {{ i.date.day }}
+               </li>
+               {% endfor %}
+            <li class="arrow arrow_forward"></li> 
+           </ul>
+           
+           <div class="content">
+            {% for i in dtl %}
+                <div class="item {{ i.is_active }}" id="item-{{ i.date.day }}">
+                    {% for f in i.films %}
+                         <div class="film_item">
+                             <div class="image"> 
+                                 <a href="{{ f.get_absolute_url }}">
+                                     <img class="img-rounded" src="{{ f.thumb_url }}" />
+                                 </a>
+                             </div>     
+                             <div class="text">
+                                    <strong> {{ f.name }} </strong>
+                                    <p> {{ f.shorttext }} </p>
+                                    <strong> {{ f.release_date }} </strong>
+                             </div>
+                         </div>
+                         <div style="clear: both"></div>
                     {% endfor %}
                 </div>
-
-
+            {% endfor %}
+            <div style="clear: both"></div>
+           </div>
+       </div>
     </div>
+              
 
 {% endblock %}

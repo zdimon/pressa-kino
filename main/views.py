@@ -1,8 +1,9 @@
+# -*- coding: utf-8 -*-
 from django.shortcuts import render
 from django.shortcuts import render_to_response, get_object_or_404
 from main.models import *
 from django.views.generic import ListView, DetailView
-
+import datetime
 
 class NewsListView(ListView):
     model = News
@@ -37,9 +38,54 @@ def page(request,id):
     context = {'page': page }
     return render_to_response('page.html', context)
 
+def date_range_generator(from_dt,to_dt):
+  while from_dt!=to_dt:
+    yield from_dt
+    from_dt = from_dt + datetime.timedelta(days=1)
+    
+def get_weekday(nd):
+    if nd == 0:
+        return 'Пн'    
+    if nd == 1:
+        return 'Вт'  
+    if nd == 2:
+        return 'Ср'  
+    if nd == 3:
+        return 'Чт'  
+    if nd == 4:
+        return 'Пт'  
+    if nd == 5:
+        return 'Сб'  
+    if nd == 6:
+        return 'Вс'  
+
 def festival(request,id):
     festival = get_object_or_404(Festival, alias=id)
-    context = {'festival': festival }
+    last_film =  Film.objects.filter(festival=festival).order_by('-release_date')[0]
+    now = last_film.release_date
+    from_dt = now - datetime.timedelta(days=7)
+    to_dt =  now + datetime.timedelta(days=7)
+    #date_list = [base - datetime.timedelta(days=x) for x in range(0, 13)]
+    #dtl = []
+    #for d in date_list:
+    #    dtl.append(d.day)
+    dtl = []
+    for dt in date_range_generator(from_dt,to_dt):
+        if dt == now:
+            is_active = "active"
+        else:
+            is_active = ""    
+        films = []
+        for f in Film.objects.filter(release_date=dt, festival=festival):
+            films.append(f)
+        dtl.append({
+                    "date":dt, 
+                    "weekday": get_weekday(dt.weekday()),
+                    "is_active": is_active,
+                    "films": films
+                    })
+    #print dtl	    			
+    context = {'festival': festival, 'dtl': dtl}
     return render_to_response('festival.html', context)
 
 
