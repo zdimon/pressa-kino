@@ -16,5 +16,8 @@ urlpatterns = patterns('',
     url(r'^page/(?P<id>[^\.]+).html', 'main.views.page', name='page_detail'),
     url(r'^festival/(?P<id>[^\.]+).html', 'main.views.festival', name='festival_detail'),
     url(r'^film/(?P<id>[^\.]+).html', 'main.views.film', name='film_detail'),
+    
+    url(r'^api/vote', 'main.views.vote', name='film_detail'),
+     
     url(r'^admin/', include(admin.site.urls)),
 )+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

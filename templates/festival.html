@@ -35,6 +35,7 @@
                                     <strong> {{ f.name }} </strong>
                                     <p> {{ f.shorttext }} </p>
                                     <strong> {{ f.release_date }} </strong>
+                                    <ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul>
                              </div>
                          </div>
                          <div style="clear: both"></div>
@@ -44,7 +45,21 @@
             <div style="clear: both"></div>
            </div>
        </div>
+          
+        
+          
     </div>
-              
-
+           
+    <link rel="stylesheet" href="/static/css/zd-vote.css">          
+    <script src="/static/js/zd-vote.js"></script>
+    
+    <script> 
+        var vote = zdVote({
+                          class: 'zd_vote',
+                          count: 5,
+                          url: '/api/vote'
+                         });
+        vote.activate();
+    </script>    
+    
 {% endblock %}

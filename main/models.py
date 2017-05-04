@@ -10,6 +10,11 @@ import pytils
 
 # Create your models here.
 
+class Vote(models.Model):
+    obj = models.IntegerField(verbose_name=_(u'объект'), default=0)
+    cnt = models.IntegerField(verbose_name=_(u'кол-во голосов'), default=0)
+    score = models.IntegerField(verbose_name=_(u'балы'), default=0)
+
 class Page(models.Model):
     title = models.CharField(max_length=250,verbose_name=_(u'заголовок'))
     image  = models.ImageField(upload_to='page', verbose_name=u'Изображение', blank=True, null=True)

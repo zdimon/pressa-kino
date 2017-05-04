@@ -4,6 +4,10 @@ from django.shortcuts import render_to_response, get_object_or_404
 from main.models import *
 from django.views.generic import ListView, DetailView
 import datetime
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+from main.models import Vote
+
 
 class NewsListView(ListView):
     model = News
@@ -93,3 +97,25 @@ def film(request,id):
     film = get_object_or_404(Film, id=id)
     context = {'film': film }
     return render_to_response('film.html', context)
+
+
+
+@csrf_exempt
+def vote(request):
+    print
+    try:
+        vt = Vote.objects.get(obj=request.POST['id'])
+    except:
+        vt = Vote()
+        vt.obj = request.POST['id']
+        vt.cnt = 0
+        vt.score = 0
+    if( request.POST['voted']!='true'):
+        vt.cnt = vt.cnt+1
+        vt.score = vt.score + int(request.POST['score'])
+        vt.save()
+    evg = float(vt.score)/vt.cnt
+    out = '%s|%.1f|%s' % (str(vt.cnt),evg,vt.obj)
+    return HttpResponse(out)
+    
+    
