@@ -1,3 +1,8 @@
+ul.zd_vote {
+  display: inline-block;
+}
+
+
 ul.zd_vote li {
   
   display: inline-block;
@@ -6,4 +11,13 @@ ul.zd_vote li {
   height: 50px;
   font-size: 40px;
   cursor: pointer;
+}
+
+.zd_title {
+
+    display: inline-block;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-right: 10px;
+
 }
