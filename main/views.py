@@ -99,6 +99,11 @@ def film(request,id):
     return render_to_response('film.html', context)
 
 
+def blog(request,id):
+    blog = get_object_or_404(Blog, id=id)
+    context = {'blog': blog }
+    return render_to_response('blog.html', context)
+
 
 @csrf_exempt
 def vote(request):

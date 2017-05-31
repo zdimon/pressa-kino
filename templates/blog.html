@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+    <div class="container">
+
+        <h3>{{ blog.name }}</h3>
+
+
+
+                  <div class="row">
+                   
+
+                        <div class="col-sm-12" style="text-align: center">
+
+                            <img class="img-responsive" src='/media/{{ blog.image }}' />
+                            
+                            {{ blog.shorttext|safe }}
+
+                             {{ blog.text|safe }}
+                        </div>
+                   
+                </div>
+
+
+    </div>
+
+{% endblock %}

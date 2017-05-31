@@ -73,6 +73,8 @@ class Film(models.Model):
     release_date = models.DateField(blank=True, null=True)
     image  = models.ImageField(upload_to='film', verbose_name=u'Изображение', blank=True, null=True)
     cropping = ImageRatioField('image', '255x145')
+    code = models.TextField(verbose_name=_(u'код для вставки видео'), blank=True, null=True)
+    video  = models.FileField(upload_to='video', verbose_name=u'Видеофайл', blank=True, null=True)
     def get_absolute_url(self):
         return reverse('film_detail', args=[self.id])
     def __unicode__(self):
@@ -110,6 +112,8 @@ class Blog(models.Model):
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
     image  = models.ImageField(upload_to='blog', verbose_name=u'Изображение', blank=True, null=True)
     cropping = ImageRatioField('image', '180x180')
+    def get_absolute_url(self):
+        return reverse('blog_detail', args=[self.id])    
     def __unicode__(self):
         return self.name
     @property
