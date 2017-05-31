@@ -113,7 +113,7 @@ class Blog(models.Model):
     image  = models.ImageField(upload_to='blog', verbose_name=u'Изображение', blank=True, null=True)
     cropping = ImageRatioField('image', '180x180')
     def get_absolute_url(self):
-        return reverse('blog_detail', args=[self.id])    
+        return reverse('blog_detail', args=[self.id])
     def __unicode__(self):
         return self.name
     @property
