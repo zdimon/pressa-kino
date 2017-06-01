@@ -25,8 +25,8 @@
                 <h2 class="festival_title">{{ fo.title }}</h2>
             <div class="festival_line">
 
-
-
+                     <a href="{{ fo.get_absolute_url }}"><img class="img-responsive" src='/media/{{ fo.image }}' /></a>
+                     <!--
                     <div id="festival" class="owl-carousel">
                       {% for f in festival_one %}
                       <div class="item photoplot">
@@ -36,6 +36,7 @@
                             <p>{{ f.shorttext }} </p>
                         </div>
                       {% endfor %}
+                     -->
 
 
                     </div>
@@ -57,6 +58,8 @@
                 <h2 class="festival_title_kino">{{ ft.title }}</h2>
             <div class="festival_line_kino">
 
+
+                     
                     <div id="festival_kino" class="owl-carousel">
                         {% for f in festival_two %}
                         <div class="item photoplot">

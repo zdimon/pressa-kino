@@ -97,6 +97,13 @@ class Film(models.Model):
     class Meta:
         verbose_name = _(u'фильм')
         verbose_name_plural = _(u'фильмы')
+        
+        
+class Message(models.Model):
+    name = models.CharField(max_length=250, verbose_name=_(u'имя'))
+    text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
+    in_menu = models.BooleanField(verbose_name=_(u'в верхнем меню?'),default=False)
+    
 
 class Videos(models.Model):
     film = models.ForeignKey(Film, on_delete=models.CASCADE)
