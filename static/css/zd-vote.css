@@ -21,3 +21,9 @@ ul.zd_vote li {
     margin-right: 10px;
    
 }
+
+p.zd_vote {
+  
+  font-size: 18px;
+  color: #203646;
+}
