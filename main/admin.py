@@ -5,6 +5,12 @@ from image_cropping import ImageCroppingMixin
 
 # Register your models here.
 
+class MessageAdmin(admin.ModelAdmin):
+    list_display = ("name","text", "is_published", "film" )
+    list_editable = ('is_published',)
+
+admin.site.register(Message, MessageAdmin)
+
 class NewsAdmin(admin.ModelAdmin):
     pass
 

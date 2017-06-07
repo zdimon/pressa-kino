@@ -1,14 +1,25 @@
 {% extends 'base.html' %}
-
+{% load bootstrap_tags %}
 {% block main %}
 
     <div class="container">
 
+
+            {% if messages %}
+            <div class="well">
+                {% for message in messages %}
+                   <h4>{{ message }}</h4>
+                {% endfor %}
+            </div>
+            {% endif %}
+            
+            
         <h3><a href="{{ film.festival.get_absolute_url }}"> {{ film.festival }} </a> / {{ film.name }}</h3>
 
 
 
-                  <div class="row">
+
+                <div class="row">
                     {% for v in film.videos_set.all %}
 
 
@@ -24,6 +35,42 @@
                         </div>
                     {% endfor %}
                 </div>
+                
+                
+                <div class="row">
+                    
+                    <div class="col-sm-7">
+                         <h3> Отзывы </h3>
+                         {% for m in messages %}
+                            <div style="border-bottom: 1px solid #203646; margin-bottom: 10px">
+
+                                <div>
+                                    {{ m.text }} 
+                                </div>
+                                <div style="float: right">
+                                    <strong>{{ m.name }}    </strong>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                         {% endfor %}
+                    </div>
+                    
+                    <div class="col-sm-5">
+                        <h3> Оставить отзыв </h3>
+                         <form action="" method="post">
+                             {% csrf_token %}
+                             {{ form|as_bootstrap }}
+                             <div class="form-actions">
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                             </div>
+                         </form>                        
+                    </div>       
+                    
+
+               
+
+                
+               
 
 
     </div>

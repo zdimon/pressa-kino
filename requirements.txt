@@ -1,3 +1,4 @@
 django-ckeditor-updated==4.4.4
 South==1.0
 pytils==0.2.3
+django-forms-bootstrap==3.1.0

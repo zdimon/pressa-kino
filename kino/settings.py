@@ -42,6 +42,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'ckeditor',
     'easy_thumbnails',
+    'django_forms_bootstrap',
 )
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
