@@ -104,7 +104,7 @@ def festival(request,id):
 
 def film(request,id):
     film = get_object_or_404(Film, id=id)
-    messages = Message.objects.filter(film=film, is_published=True)
+    mess = Message.objects.filter(film=film, is_published=True)
     if request.method == 'POST':
         form = MessageForm(request.POST)
         if form.is_valid():
@@ -115,7 +115,7 @@ def film(request,id):
         message = Message()
         message.film = film
         form = MessageForm(instance=message)
-    context = {'film': film, 'form': form, 'messages': messages }
+    context = {'film': film, 'form': form, 'messages': mess }
     return render(request,'film.html', context)
 
 
