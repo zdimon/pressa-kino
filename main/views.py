@@ -112,10 +112,10 @@ def film(request,id):
             messages.success(request, "Спасибо. Ваше сообщение сохранено и появится после проверки Администрацией.")
             # do something.
     else:
-        message = Message()
-        message.film = film
-        form = MessageForm(instance=message)
-    context = {'film': film, 'form': form, 'messages': mess }
+        mes = Message()
+        mes.film = film
+        form = MessageForm(instance=mes)
+    context = {'film': film, 'form': form, 'mess': mess }
     return render(request,'film.html', context)
 
 
