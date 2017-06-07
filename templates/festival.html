@@ -4,7 +4,7 @@
 
     <div class="container">
 
-        <h1>{{ festival.title }}</h1>
+        <h1><a href="/">На главную</a> / {{ festival.title }}</h1>
 
   
           <div id="wg_content"> 
@@ -25,7 +25,7 @@
             {% for i in dtl %}
                 <div class="item {{ i.is_active }}" id="item-{{ i.date.day }}">
                     {% for f in i.films %}
-                         <div class="film_item">
+                         <div class="film_item" data-day="{{ f.release_date.day }}">
                              <div class="image"> 
                                  <a href="{{ f.get_absolute_url }}">
                                      <img class="img-rounded" src="{{ f.thumb_url }}" />
@@ -35,7 +35,7 @@
                                     <strong> {{ f.name }} </strong>
                                     <p> {{ f.shorttext }} </p>
                                     <strong> {{ f.release_date }} </strong>
-                                    <div><span class="zd_title">Проголосуй!</span><ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul></div>
+                                    <div><a href="#" id="vote-{{ f.id }}" style="display: none"><span class="zd_title" >Проголосуй!</span></a><ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul></div>
                              </div>
                          </div>
                          <div style="clear: both"></div>

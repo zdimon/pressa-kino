@@ -102,7 +102,8 @@ class Film(models.Model):
 class Message(models.Model):
     name = models.CharField(max_length=250, verbose_name=_(u'имя'))
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
-    in_menu = models.BooleanField(verbose_name=_(u'в верхнем меню?'),default=False)
+    in_menu = models.BooleanField(verbose_name=_(u'опубликован?'),default=False)
+    film = models.ForeignKey(Film, on_delete=models.CASCADE)
     
 
 class Videos(models.Model):

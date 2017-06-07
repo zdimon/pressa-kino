@@ -1,5 +1,20 @@
  $(document).ready(function(){
     
+          /// hiligth dates
+          
+          $('#wg_content .number').each(function(item){
+               var el = this;
+               $('#wg_content .film_item').each(function(){
+                    var nd = parseInt($(this).attr('data-day'));
+                    var day = parseInt($(el).attr('data-id'));
+                    
+                    if (nd==day) {
+                         $(el).addClass('red');
+                    }
+               });
+               
+                    
+          });
     
       $("#wg_content .number").click(function(evt){
          evt.preventDefault();
@@ -12,7 +27,7 @@
       
       activate_tab = function(){
         var indx =  $('#wg_content li.active').attr("data-id");
-        console.log(indx);
+        
         $('#item-'+indx).addClass('active');
         
       }

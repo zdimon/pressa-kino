@@ -89,7 +89,39 @@ var zdVote = function(settings){
 
             };
             
+            ul.on("click","li",function(e){
+                e.preventDefault();
+                var id = '#vote-'+$(e.target).parent().attr('data-id');
+                var idel = $(e.target).parent().attr('data-id');
+                $(id).show();
+                var score = $(e.target).attr('data-score');
+                $(id).click(function(e){
+                    e.preventDefault();
+                    $(id).hide();
+                    var data = settings;
+                    data.score = score
+                    data.id =idel
+                    cn = 'zd-vote-'+ data.id;
+                    if(getCookie(cn)==1) {
+                        data.voted = true;
+                    } else {
+                        setCookie(cn,1,{expires: 3600});
+                        data.voted = false;
+                    }
+                    $.ajax({
+                        type: "POST",
+                        url: settings.url,
+                        data: data,
+                        success: success
+                      });
+                    
+                });
+                
+            });
+            
+            /*
             ul.on("click","li",function(el){
+                $('.zd_title').show();
                 var data = settings;
                 data.score = $(el.target).attr('data-score');
                 data.id = $(el.target).parent().attr('data-id');
@@ -106,14 +138,14 @@ var zdVote = function(settings){
                     data: data,
                     success: success
                   });
-            });              
+            });
+            */
             
     };
     
     return {
         activate: function(){
-            console.log('Activation');
-            console.log(ul);
+          
             buildUl();
             onHover();
         }
