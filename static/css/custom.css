@@ -448,11 +448,31 @@ ul.wg_calendar li.active {
 } 
 
 
+.indexlink {
+    width: 400px;
+    height: 300px;
+    display: block;
+    position: absolute;
+    left: -40px;
+}
 
 
+.f_list .film_item {
 
+    border: 1px solid #203646;
+    margin: 5px; 
+    padding: 5px;
+    height: 156px;
+}
 
-
+.f_list .film_item .image {
+    width: 260px;
+    position: absolute;
+}
+.f_list .film_item .text {
+   
+    padding-left: 270px;
+}
 
 
 

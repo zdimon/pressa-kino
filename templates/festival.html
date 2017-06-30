@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block main %}
-
+<!--
     <div class="container">
 
         <h1><a href="/">На главную</a> / {{ festival.title }}</h1>
@@ -49,17 +49,41 @@
         
           
     </div>
-           
+     -->       
     <link rel="stylesheet" href="/static/css/zd-vote.css">          
     <script src="/static/js/zd-vote.js"></script>
     
-    <script> 
+
+
+    <div class="container">
+        <div class="f_list">
+                    {% for f in festival.film_set.all %}
+                         <div class="film_item">
+                             <div class="image"> 
+                                 <a href="{{ f.get_absolute_url }}">
+                                     <img class="img-rounded" src="{{ f.thumb_url }}" />
+                                 </a>
+                             </div>     
+                             <div class="text">
+                                    <strong> {{ f.name }} </strong>
+                                    <p> {{ f.shorttext }} </p>
+                                    <strong> {{ f.release_date }} </strong>
+                                    <div><a href="#" id="vote-{{ f.id }}" style="display: none"><span class="zd_title" >Проголосуй!</span></a><ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul></div>
+                             </div>
+                         </div>
+                         <div style="clear: both"></div>
+                    {% endfor %}            
+        </div>
+    </div> 
+
+        <script> 
         var vote = zdVote({
                           class: 'zd_vote',
                           count: 5,
                           url: '/api/vote'
                          });
         vote.activate();
-    </script>    
+    </script> 
+
     
 {% endblock %}
