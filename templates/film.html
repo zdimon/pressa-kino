@@ -20,6 +20,12 @@
 
 
                 <div class="row">
+                    {% if film.is_ftp %}
+                        <p>
+                            <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="/static/ftp/{{ film.ftp }}"></video>
+                        </p>
+                    {% endif %}
+                    
                     {% for v in film.videos_set.all %}
 
 
@@ -31,11 +37,7 @@
                                 </p>
                             {% endif %}
 
-                            {% if v.is_ftp %}
-                                <p>
-                                    <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="/static/ftp/{{ v.ftp }}"></video>
-                                </p>
-                            {% endif %}
+
 
                              {{ v.code|safe }}
                         </div>

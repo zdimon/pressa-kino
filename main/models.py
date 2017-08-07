@@ -75,6 +75,15 @@ class Film(models.Model):
     cropping = ImageRatioField('image', '255x145')
     code = models.TextField(verbose_name=_(u'код для вставки видео'), blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видеофайл', blank=True, null=True)
+    ftp = models.CharField(verbose_name=_(u'имя на фтп'), max_length=250, blank=True, null=True)
+
+    @property
+    def is_ftp(self):
+        if len(self.ftp)>2:
+            return True
+        else:
+            return False
+        
     def get_absolute_url(self):
         return reverse('film_detail', args=[self.id])
     def __unicode__(self):
@@ -113,14 +122,7 @@ class Videos(models.Model):
     image  = models.ImageField(upload_to='video', verbose_name=u'Изображение', blank=True, null=True)
     code = models.TextField(verbose_name=_(u'код для вставки'), blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)
-    ftp = models.CharField(verbose_name=_(u'имя на фтп'), max_length=250, blank=True, null=True)
 
-    @property
-    def is_ftp(self):
-        if len(self.ftp)>2:
-            return True
-        else:
-            return False
 
 
 
