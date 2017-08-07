@@ -113,6 +113,7 @@ class Videos(models.Model):
     image  = models.ImageField(upload_to='video', verbose_name=u'Изображение', blank=True, null=True)
     code = models.TextField(verbose_name=_(u'код для вставки'), blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видео', blank=True, null=True)
+    is_ftp = models.BooleanField(verbose_name=_(u'на фтп?'),default=False)
 
 
 
