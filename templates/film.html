@@ -21,6 +21,7 @@
 
                 <div class="row">
                     {% if film.is_ftp %}
+                        <a class="btn btn-success"> Смотреть фильм </a>
                         <p>
                             <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="http://pressa.ru/media/kino/{{ film.ftp }}"></video>
                         </p>
