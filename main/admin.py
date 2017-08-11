@@ -17,7 +17,7 @@ class NewsAdmin(admin.ModelAdmin):
 admin.site.register(News, NewsAdmin)
 
 class FestivalAdmin(admin.ModelAdmin):
-    pass
+    list_display = ("title","is_in_catalog" )
 
 admin.site.register(Festival, FestivalAdmin)
 
@@ -34,7 +34,7 @@ class VideoInline(admin.TabularInline):
 
 
 class FilmAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    list_display = ("thumb","name","festival" )
+    list_display = ("thumb","name","festival", "catalog" )
     inlines = [ VideoInline, ]
 
 admin.site.register(Film, FilmAdmin)
@@ -44,3 +44,9 @@ class BlogAdmin(ImageCroppingMixin, admin.ModelAdmin):
     list_display = ("thumb","name")
 
 admin.site.register(Blog, BlogAdmin)
+
+
+class CatalogAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Catalog, CatalogAdmin)

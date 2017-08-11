@@ -14,7 +14,7 @@ urlpatterns = patterns('',
     url(r'^news/(?P<slug>[^\.]+).html$', NewsDetailView.as_view(), name='news'),
 
     url(r'^page/(?P<id>[^\.]+).html', 'main.views.page', name='page_detail'),
-    url(r'^festival/(?P<id>[^\.]+).html', 'main.views.festival', name='festival_detail'),
+    url(r'^festival/(?P<catalog>[^\.]+)/(?P<id>[^\.]+).html', 'main.views.festival', name='festival_detail'),
     url(r'^film/(?P<id>[^\.]+).html', 'main.views.film', name='film_detail'),
     url(r'^blog/(?P<id>[^\.]+).html', 'main.views.blog', name='blog_detail'), 
     

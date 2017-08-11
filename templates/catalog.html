@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block main %}
+
+        <div class="container">
+            <h3>{{ festival.title }}</h3>
+
+
+            {% for c in catalogs %}
+                <h3 style="text-align: center"><a href="/festival/{{c.id}}/{{festival.alias}}.html">{{ c.title }}</a></h3>
+            {% endfor %}
+
+
+        </div>
+
+
+
+    
+{% endblock %}

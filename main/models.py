@@ -55,18 +55,33 @@ class Festival(models.Model):
     image  = models.ImageField(upload_to='festivals', verbose_name=u'Изображение', blank=True, null=True)
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)
     alias = models.CharField(max_length=50,verbose_name=_(u'псевдоним'), db_index=True)
-
-    def get_absolute_url(self):
-        return reverse('festival_detail', args=[self.alias])
+    @property
+    def is_in_catalog(self):
+        ex = Film.objects.filter(festival=self, catalog__isnull=False).exists()
+        return ex
+    def get_catalogs(self):
+        cats = []
+        for f in Film.objects.filter(festival=self, catalog__isnull=False):
+            if f.catalog not in cats:
+                cats.append(f.catalog)
+        return cats
+        
+    def get_absolute_url(self, catalog=0):
+        return reverse('festival_detail', args=[self.alias, catalog])
     def __unicode__(self):
         return self.title
     class Meta:
         verbose_name = _(u'кинофестиваль')
         verbose_name_plural = _(u'фестиваль')
 
+class Catalog(models.Model):
+    title = models.CharField(max_length=250,verbose_name=_(u'заголовок'))
+    def __unicode__(self):
+        return self.title
 
 class Film(models.Model):
     festival = models.ForeignKey(Festival, on_delete=models.CASCADE)
+    catalog = models.ForeignKey(Catalog, blank=True, null=True)
     name = models.CharField(max_length=250,verbose_name=_(u'заголовок'))
     shorttext = models.TextField(verbose_name=_(u'краткое описание'), blank=True, null=True)
     text = RichTextField(verbose_name=_(u'описание'), blank=True, null=True)

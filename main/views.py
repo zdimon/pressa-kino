@@ -72,34 +72,30 @@ def get_weekday(nd):
     if nd == 6:
         return 'Вс'  
 
-def festival(request,id):
+def festival(request,id,catalog):
     festival = get_object_or_404(Festival, alias=id)
-    last_film =  Film.objects.filter(festival=festival).order_by('-release_date')[0]
-    now = last_film.release_date
-    from_dt = now - datetime.timedelta(days=7)
-    to_dt =  now + datetime.timedelta(days=7)
-    #date_list = [base - datetime.timedelta(days=x) for x in range(0, 13)]
-    #dtl = []
-    #for d in date_list:
-    #    dtl.append(d.day)
-    dtl = []
-    for dt in date_range_generator(from_dt,to_dt):
-        if dt == now:
-            is_active = "active"
-        else:
-            is_active = ""    
-        films = []
-        for f in Film.objects.filter(release_date=dt, festival=festival):
-            films.append(f)
-        dtl.append({
-                    "date":dt, 
-                    "weekday": get_weekday(dt.weekday()),
-                    "is_active": is_active,
-                    "films": films
-                    })
-    #print dtl	    			
-    context = {'festival': festival, 'dtl': dtl}
-    return render_to_response('festival.html', context)
+    catalogs = festival.get_catalogs()
+    try:
+        catalog = Catalog.objects.get(pk=catalog)
+    except:
+        catalog = None
+    #print catalogs
+    #if (festival.is_in_catalog):
+    #    tpl = 'catalog.html'
+    #else:
+    
+    tpl = 'festival.html'
+    if catalog:
+        films = Film.objects.filter(festival=festival, catalog=catalog).order_by('-release_date')
+        curc = catalog.id
+    else:
+        films = Film.objects.filter(festival=festival).order_by('-release_date')
+        curc = 0
+
+
+   		
+    context = {'festival': festival, 'films': films, 'catalogs': catalogs, 'curc': curc}
+    return render_to_response(tpl, context)
 
 
 def film(request,id):

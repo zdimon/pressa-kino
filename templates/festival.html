@@ -56,8 +56,22 @@
 
 
     <div class="container">
+
+        {% if catalogs|length > 0 %}
+
+            <div style="text-align: center">
+            {% for c in catalogs %}
+                <h3 style="text-align: center; display: inline-block; background: #203646; padding: 5px">
+                    <a style="color: {% if curc == c.id %} red {% else %} white {% endif %}" href="/festival/{{c.id}}/{{festival.alias}}.html">{{ c.title }}</a>
+                </h3>
+            {% endfor %}
+            </div>
+
+        {% endif %}
+
+        
         <div class="f_list">
-                    {% for f in festival.film_set.all %}
+                    {% for f in films %}
                          <div class="film_item">
                              <div class="image"> 
                                  <a href="{{ f.get_absolute_url }}">
@@ -74,6 +88,7 @@
                          <div style="clear: both"></div>
                     {% endfor %}            
         </div>
+        
     </div> 
 
         <script> 
