@@ -70,24 +70,24 @@
         {% endif %}
 
         {% if not hide %}
-        <div class="f_list">
-                    {% for f in films %}
-                         <div class="film_item">
-                             <div class="image"> 
-                                 <a href="{{ f.get_absolute_url }}">
-                                     <img class="img-rounded" src="{{ f.thumb_url }}" />
-                                 </a>
-                             </div>     
-                             <div class="text">
-                                    <strong> {{ f.name }} </strong>
-                                    <p style="height: 59px; overflow: hidden"> {{ f.shorttext }} </p>
-                                    <strong> {{ f.release_date }} </strong>
-                                    <div><a href="#" id="vote-{{ f.id }}" style="display: none"><span class="zd_title" >Проголосуй!</span></a><ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul></div>
-                             </div>
-                         </div>
-                         <div style="clear: both"></div>
-                    {% endfor %}            
-        </div>
+            <div class="f_list">
+                        {% for f in films %}
+                            <div class="film_item">
+                                <div class="image"> 
+                                    <a href="{{ f.get_absolute_url }}">
+                                        <img class="img-rounded" src="{{ f.thumb_url }}" />
+                                    </a>
+                                </div>     
+                                <div class="text">
+                                        <strong> {{ f.name }} </strong>
+                                        <p style="height: 59px; overflow: hidden"> {{ f.shorttext }} </p>
+                                        <strong> {{ f.release_date }} </strong>
+                                        <div><a href="#" id="vote-{{ f.id }}" style="display: none"><span class="zd_title" >Проголосуй!</span></a><ul class="zd_vote" data-id="{{ f.id }}" id="zd_vote_{{ f.id }}"></ul></div>
+                                </div>
+                            </div>
+                            <div style="clear: both"></div>
+                        {% endfor %}            
+            </div>
         {% endif %}
 
         

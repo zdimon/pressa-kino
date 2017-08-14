@@ -77,10 +77,15 @@ def festival(request,id,catalog):
     catalogs = festival.get_catalogs()
     try:
         catalog = Catalog.objects.get(pk=catalog)
-        hide = False
     except:
         catalog = None
-        hide = True
+        
+
+    if (festival.is_in_catalog and catalog==None):
+         hide = True
+    else:
+         hide = False
+
     #print catalogs
     #if (festival.is_in_catalog):
     #    tpl = 'catalog.html'
@@ -93,6 +98,7 @@ def festival(request,id,catalog):
     else:
         films = Film.objects.filter(festival=festival).order_by('-release_date')
         curc = 0
+
 
 
    		
