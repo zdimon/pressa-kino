@@ -69,7 +69,7 @@
 
         {% endif %}
 
-        
+        {% if not hide %}
         <div class="f_list">
                     {% for f in films %}
                          <div class="film_item">
@@ -88,6 +88,8 @@
                          <div style="clear: both"></div>
                     {% endfor %}            
         </div>
+        {% endif %}
+
         
     </div> 
 

@@ -77,8 +77,10 @@ def festival(request,id,catalog):
     catalogs = festival.get_catalogs()
     try:
         catalog = Catalog.objects.get(pk=catalog)
+        hide = False
     except:
         catalog = None
+        hide = True
     #print catalogs
     #if (festival.is_in_catalog):
     #    tpl = 'catalog.html'
@@ -94,7 +96,7 @@ def festival(request,id,catalog):
 
 
    		
-    context = {'festival': festival, 'films': films, 'catalogs': catalogs, 'curc': curc}
+    context = {'festival': festival, 'films': films, 'catalogs': catalogs, 'curc': curc, 'hide': hide}
     return render_to_response(tpl, context)
 
 
