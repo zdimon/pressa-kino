@@ -25,7 +25,7 @@
                             <a class="btn btn-success" data-id="{{ film.id }}"> Смотреть фильм </a>
                         </div>
 
-                        
+                       
                     {% endif %}
                     
                     {% for v in film.videos_set.all %}
@@ -33,7 +33,11 @@
 
                         <div class="col-sm-12" style="text-align: center">
 
-                           
+                            {% if v.video %}
+                                <p>
+                                    <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="{{ v.video.url }}"></video>
+                                </p>
+                            {% endif %}
 
 
 
