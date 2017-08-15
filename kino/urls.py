@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     url(r'^festival/(?P<catalog>[^\.]+)/(?P<id>[^\.]+).html', 'main.views.festival', name='festival_detail'),
     url(r'^film/(?P<id>[^\.]+).html', 'main.views.film', name='film_detail'),
     url(r'^blog/(?P<id>[^\.]+).html', 'main.views.blog', name='blog_detail'), 
+    url(r'^showme/(?P<id>[^\.]+)', 'main.views.showme'),
     
     url(r'^api/vote', 'main.views.vote', name='film_detail'),
      

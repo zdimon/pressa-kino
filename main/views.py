@@ -10,6 +10,31 @@ from main.models import Vote
 from django.forms import ModelForm, HiddenInput
 from django.shortcuts import render
 from django.contrib import messages
+import json
+import os
+import uuid
+from kino.settings import VIDEO_DIR, LINK_DIR
+from multiprocessing import Pool
+import time
+
+def delayselete(hash):
+    time.sleep(4)
+    print 'deleting'
+    dst = LINK_DIR+'/'+hash+'.mp4'
+    os.remove(dst)
+
+
+def showme(request,id):
+    pool = Pool(processes=1)
+    film = get_object_or_404(Film, pk=id)
+    hash = str(uuid.uuid4())
+    src = VIDEO_DIR+'/'+film.ftp
+    dst = LINK_DIR+'/'+hash+'.mp4'
+    os.symlink(src, dst)
+    #result = pool.apply_async(delayselete, [hash])
+    data = {'status': 0, 'id': film.id, 'hash': hash}
+
+    return HttpResponse(json.dumps(data), mimetype='application/json')
 
 class MessageForm(ModelForm):
     class Meta:
