@@ -25,9 +25,7 @@
                             <a class="btn btn-success" data-id="{{ film.id }}"> Смотреть фильм </a>
                         </div>
 
-                        <p>
-                            <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="http://pressa.ru/media/kino/{{ film.ftp }}"></video>
-                        </p>
+                        
                     {% endif %}
                     
                     {% for v in film.videos_set.all %}
