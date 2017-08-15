@@ -31,7 +31,7 @@ def showme(request,id):
     src = VIDEO_DIR+'/'+film.ftp
     dst = LINK_DIR+'/'+hash+'.mp4'
     os.symlink(src, dst)
-    #result = pool.apply_async(delayselete, [hash])
+    result = pool.apply_async(delayselete, [hash])
     data = {'status': 0, 'id': film.id, 'hash': hash}
 
     return HttpResponse(json.dumps(data), mimetype='application/json')
