@@ -20,10 +20,10 @@
 
 
                 <div class="row">
-                    {% if film.is_ftp %}
+                   
                        <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="http://pressa.ru/media/kino/{{ film.ftp }}"></video>
                        
-                    {% endif %}
+               
                     
                     {% for v in film.videos_set.all %}
 
