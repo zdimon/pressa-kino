@@ -34,7 +34,7 @@ class VideoInline(admin.TabularInline):
 
 
 class FilmAdmin(ImageCroppingMixin, admin.ModelAdmin):
-    list_display = ("thumb","name","festival", "catalog" )
+    list_display = ("thumb","name","festival", "catalog", 'votes' )
     inlines = [ VideoInline, ]
 
 admin.site.register(Film, FilmAdmin)

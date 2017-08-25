@@ -22,9 +22,12 @@
                 <div class="row">
                    
                     {% if film.is_ftp %}
-                       <video style="display: inline-block" class="img-responsive" autoplay loop controls tabindex="0" src="http://pressa.ru/media/kino/{{ film.ftp }}"></video>
-                       
-                    {% endif %}
+                    <div style="text-align: center; padding-top: 100px" id="wb">
+                        <a class="btn btn-success" data-id="{{ film.id }}"> Смотреть фильм </a>
+                    </div>
+
+                   
+                {% endif %}
                     
                     {% for v in film.videos_set.all %}
 

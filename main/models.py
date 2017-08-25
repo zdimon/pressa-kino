@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import division
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from ckeditor.fields import RichTextField
@@ -91,6 +92,15 @@ class Film(models.Model):
     code = models.TextField(verbose_name=_(u'код для вставки видео'), blank=True, null=True)
     video  = models.FileField(upload_to='video', verbose_name=u'Видеофайл', blank=True, null=True)
     ftp = models.CharField(verbose_name=_(u'имя на фтп'), max_length=250, blank=True, null=True)
+
+    @property
+    def votes(self):
+        #vt = Votee.objects.get(obj=self.id)
+        try:
+            vt = Vote.objects.get(obj=self.id)
+            return '%s/%s(%0.2f)' % (vt.cnt,vt.score,(vt.score/vt.cnt))
+        except:
+            return '0/0'
 
     @property
     def is_ftp(self):
